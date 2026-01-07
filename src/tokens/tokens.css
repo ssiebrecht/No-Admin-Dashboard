@@ -1,0 +1,381 @@
+/**
+ * Mac OS 8/9 Platinum Design Tokens
+ * CSS Custom Properties for authentic retro styling
+ */
+
+:root {
+  /* ============================================
+   * PLATINUM COLOR PALETTE
+   * ============================================ */
+  
+  /* Grays - Core Platinum Palette */
+  --color-white: #FFFFFF;
+  --color-platinum-lightest: #EEEEEE;
+  --color-platinum-light: #DDDDDD;
+  --color-platinum-base: #CCCCCC;
+  --color-platinum-dark: #BBBBBB;
+  --color-gray-light: #999999;
+  --color-gray-medium: #666666;
+  --color-gray-dark: #333333;
+  --color-black: #000000;
+
+  /* ============================================
+   * SEMANTIC COLORS - Backgrounds
+   * ============================================ */
+  
+  /* Desktop - Classic Blue-Gray */
+  --color-desktop: #5C7A99;
+  
+  /* Window Background - Platinum */
+  --color-window-bg: #DDDDDD;
+  
+  /* Content Area - White */
+  --color-content-bg: #FFFFFF;
+  
+  /* Raised Surfaces - Light Platinum */
+  --color-surface: #EEEEEE;
+  
+  /* Surface Variations */
+  --color-surface-raised: #EEEEEE;
+  --color-surface-sunken: #CCCCCC;
+
+  /* ============================================
+   * SEMANTIC COLORS - Text
+   * ============================================ */
+  
+  --color-text: #000000;
+  --color-text-primary: #000000;
+  --color-text-secondary: #666666;
+  --color-text-disabled: #999999;
+  --color-text-inverse: #FFFFFF;
+
+  /* ============================================
+   * SEMANTIC COLORS - Borders & Bevels
+   * ============================================ */
+  
+  /* 3D Effect Colors */
+  --color-bevel-light: #FFFFFF;
+  --color-bevel-dark: #666666;
+  --color-bevel-darker: #333333;
+  
+  /* Standard Borders */
+  --color-border: #999999;
+  --color-border-light: #BBBBBB;
+  --color-border-dark: #666666;
+
+  /* ============================================
+   * SEMANTIC COLORS - Interactive
+   * ============================================ */
+  
+  /* Highlight/Selection Blue */
+  --color-highlight: #3366CC;
+  --color-highlight-light: #4477DD;
+  --color-highlight-dark: #224499;
+  --color-highlight-text: #FFFFFF;
+  
+  /* Focus Ring */
+  --color-focus: #3366CC;
+  --color-focus-ring: rgba(51, 102, 204, 0.5);
+
+  /* ============================================
+   * SEMANTIC COLORS - Accent
+   * ============================================ */
+  
+  /* Classic Mac OS Accent Colors */
+  --color-accent-purple: #663399;
+  --color-accent-graphite: #808080;
+
+  /* ============================================
+   * SEMANTIC COLORS - Status/Feedback
+   * ============================================ */
+  
+  --color-success: #00AA00;
+  --color-success-light: #00CC00;
+  --color-success-dark: #008800;
+  
+  --color-warning: #FFCC00;
+  --color-warning-light: #FFDD33;
+  --color-warning-dark: #CC9900;
+  
+  --color-error: #CC0000;
+  --color-error-light: #EE0000;
+  --color-error-dark: #990000;
+  
+  --color-info: #0066CC;
+  --color-info-light: #0088EE;
+  --color-info-dark: #004499;
+
+  /* ============================================
+   * TYPOGRAPHY - Font Families
+   * ============================================ */
+  
+  /* System Font Stack (Chicago/Charcoal feel) */
+  --font-system: -apple-system, 'Segoe UI', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  
+  /* Monospace for technical info */
+  --font-mono: 'Monaco', 'SF Mono', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+  
+  /* Optional: Pixel Font for extra authenticity */
+  --font-chicago: 'ChicagoFLF', 'Chicago', var(--font-system);
+
+  /* ============================================
+   * TYPOGRAPHY - Font Sizes
+   * Classic Mac OS used 9pt, 10pt, 12pt primarily
+   * ============================================ */
+  
+  --text-xs: 9px;     /* Fine Print, Status Bar */
+  --text-sm: 10px;    /* Labels, Menu Items */
+  --text-base: 12px;  /* Body Text (Standard) */
+  --text-lg: 14px;    /* Headings, Important Text */
+  --text-xl: 18px;    /* Dialog Titles */
+  --text-2xl: 24px;   /* Large Titles */
+
+  /* ============================================
+   * TYPOGRAPHY - Line Heights
+   * ============================================ */
+  
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.2;
+  --leading-normal: 1.3;
+  --leading-relaxed: 1.5;
+  --leading-loose: 1.75;
+
+  /* ============================================
+   * TYPOGRAPHY - Font Weights
+   * ============================================ */
+  
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* ============================================
+   * TYPOGRAPHY - Letter Spacing
+   * ============================================ */
+  
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+
+  /* ============================================
+   * SPACING - 4px Base Grid
+   * ============================================ */
+  
+  --space-0: 0;
+  --space-px: 1px;
+  --space-0-5: 2px;   /* Minimal */
+  --space-1: 4px;     /* Tight */
+  --space-1-5: 6px;   /* Compact */
+  --space-2: 8px;     /* Default */
+  --space-2-5: 10px;
+  --space-3: 12px;    /* Comfortable */
+  --space-4: 16px;    /* Spacious */
+  --space-5: 20px;
+  --space-6: 24px;    /* Large */
+  --space-8: 32px;    /* Extra Large */
+  --space-10: 40px;
+  --space-12: 48px;   /* Huge */
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ============================================
+   * BORDERS - Border Radius
+   * Classic Mac OS was mostly sharp corners
+   * ============================================ */
+  
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  /* ============================================
+   * BORDERS - Border Widths
+   * ============================================ */
+  
+  --border-0: 0;
+  --border-1: 1px;
+  --border-2: 2px;
+  --border-3: 3px;
+  --border-4: 4px;
+
+  /* ============================================
+   * 3D BEVEL EFFECTS - Core Platinum Look
+   * ============================================ */
+  
+  /* Classic Bevel (Raised) - for Buttons, Toolbars */
+  --bevel-raised: 
+    inset 1px 1px 0 var(--color-bevel-light),
+    inset -1px -1px 0 var(--color-bevel-dark);
+  
+  /* Classic Bevel (Pressed/Inset) - for Inputs, Pressed States */
+  --bevel-inset:
+    inset 1px 1px 0 var(--color-bevel-dark),
+    inset -1px -1px 0 var(--color-bevel-light);
+  
+  /* Window Title Bar Bevel */
+  --bevel-title:
+    inset 0 1px 0 var(--color-bevel-light),
+    inset 0 -1px 0 var(--color-bevel-dark);
+  
+  /* Strong Raised (for prominent buttons) */
+  --bevel-raised-strong:
+    inset 2px 2px 0 var(--color-bevel-light),
+    inset -2px -2px 0 var(--color-bevel-dark);
+  
+  /* Strong Inset (for text areas, lists) */
+  --bevel-inset-strong:
+    inset 2px 2px 0 var(--color-bevel-dark),
+    inset -2px -2px 0 var(--color-bevel-light);
+  
+  /* Group Box / Frame Bevel */
+  --bevel-frame:
+    inset 1px 1px 0 var(--color-bevel-dark),
+    inset -1px -1px 0 var(--color-bevel-light),
+    inset 2px 2px 0 var(--color-bevel-light),
+    inset -2px -2px 0 var(--color-bevel-dark);
+
+  /* ============================================
+   * SHADOWS - Classic Mac OS Style
+   * ============================================ */
+  
+  /* Window Drop Shadow */
+  --shadow-window: 
+    2px 2px 0 rgba(0, 0, 0, 0.3),
+    4px 4px 0 rgba(0, 0, 0, 0.15);
+  
+  /* Menu Drop Shadow */
+  --shadow-menu:
+    2px 2px 0 rgba(0, 0, 0, 0.25);
+  
+  /* Dialog Shadow (more prominent) */
+  --shadow-dialog:
+    3px 3px 0 rgba(0, 0, 0, 0.35),
+    6px 6px 0 rgba(0, 0, 0, 0.15);
+  
+  /* Tooltip Shadow */
+  --shadow-tooltip:
+    1px 1px 0 rgba(0, 0, 0, 0.25);
+  
+  /* Subtle inner shadow */
+  --shadow-inset:
+    inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  
+  /* Deep inner shadow (for wells) */
+  --shadow-well:
+    inset 1px 1px 3px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 6px rgba(0, 0, 0, 0.1);
+  
+  /* No shadow */
+  --shadow-none: none;
+
+  /* ============================================
+   * TRANSITIONS / ANIMATIONS
+   * Classic Mac was snappy, not overly animated
+   * ============================================ */
+  
+  --duration-instant: 0ms;
+  --duration-fast: 100ms;
+  --duration-normal: 150ms;
+  --duration-slow: 250ms;
+  --duration-slower: 400ms;
+  
+  --ease-default: ease-out;
+  --ease-in: ease-in;
+  --ease-in-out: ease-in-out;
+  --ease-linear: linear;
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ============================================
+   * Z-INDEX SCALE - Window Management
+   * ============================================ */
+  
+  --z-behind: -1;
+  --z-base: 0;
+  --z-desktop: 0;
+  --z-desktop-icon: 10;
+  --z-window-base: 100;
+  --z-window-active: 200;
+  --z-window-dragging: 300;
+  --z-menu-bar: 900;
+  --z-menu-dropdown: 910;
+  --z-dialog: 1000;
+  --z-modal-backdrop: 1050;
+  --z-modal: 1100;
+  --z-tooltip: 1200;
+  --z-notification: 1300;
+  --z-maximum: 9999;
+
+  /* ============================================
+   * SIZING - Common Dimensions
+   * ============================================ */
+  
+  /* Window Title Bar */
+  --titlebar-height: 20px;
+  
+  /* Menu Bar */
+  --menubar-height: 20px;
+  
+  /* Scrollbar */
+  --scrollbar-width: 16px;
+  
+  /* Button Heights */
+  --button-height-sm: 18px;
+  --button-height-md: 22px;
+  --button-height-lg: 28px;
+  
+  /* Input Heights */
+  --input-height-sm: 18px;
+  --input-height-md: 22px;
+  --input-height-lg: 28px;
+  
+  /* Icon Sizes */
+  --icon-size-xs: 12px;
+  --icon-size-sm: 16px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 32px;
+  --icon-size-xl: 48px;
+
+  /* ============================================
+   * BREAKPOINTS (as custom properties for JS)
+   * ============================================ */
+  
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* ============================================
+ * GRAPHITE THEME VARIANT
+ * Alternative color scheme (optional)
+ * ============================================ */
+
+[data-theme="graphite"] {
+  --color-desktop: #6B6B6B;
+  --color-highlight: #808080;
+  --color-highlight-light: #999999;
+  --color-highlight-dark: #666666;
+  --color-focus: #808080;
+  --color-focus-ring: rgba(128, 128, 128, 0.5);
+}
+
+/* ============================================
+ * HIGH CONTRAST MODE
+ * For accessibility
+ * ============================================ */
+
+[data-theme="high-contrast"] {
+  --color-text: #000000;
+  --color-text-secondary: #000000;
+  --color-background: #FFFFFF;
+  --color-border: #000000;
+  --color-bevel-dark: #000000;
+}

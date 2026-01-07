@@ -1,0 +1,54 @@
+/**
+ * EmptyState Styles
+ * Classic Mac OS 8/9 empty state placeholder
+ */
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  
+  /* Typography */
+  font-family: var(--font-system);
+}
+
+/* ================================
+ * ICON
+ * ================================ */
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-3);
+  
+  /* Grayed out icon */
+  color: var(--color-text-disabled);
+  opacity: 0.6;
+}
+
+/* ================================
+ * TEXT
+ * ================================ */
+
+.title {
+  margin-bottom: var(--space-1);
+  color: var(--color-text-secondary);
+}
+
+.description {
+  max-width: 280px;
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-relaxed);
+}
+
+/* ================================
+ * ACTION BUTTON
+ * ================================ */
+
+.actionButton {
+  margin-top: var(--space-2);
+}

@@ -1,0 +1,118 @@
+/**
+ * UsageBar Styles
+ * Classic Mac OS 8/9 horizontal usage bar
+ */
+
+.container {
+  width: 100%;
+}
+
+/* ================================
+ * TRACK
+ * ================================ */
+
+.track {
+  width: 100%;
+  position: relative;
+  
+  /* Appearance - Inset well */
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-inset);
+  
+  /* Clipping */
+  overflow: hidden;
+}
+
+/* Size variants */
+.sm {
+  height: 12px;
+}
+
+.md {
+  height: 16px;
+}
+
+.lg {
+  height: 22px;
+}
+
+/* ================================
+ * FILL CONTAINER
+ * ================================ */
+
+.fillContainer {
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+
+/* ================================
+ * SINGLE FILL
+ * ================================ */
+
+.fill {
+  height: 100%;
+  background: var(--color-highlight);
+  transition: width var(--duration-fast) var(--ease-default);
+}
+
+/* ================================
+ * MULTI-SEGMENT
+ * ================================ */
+
+.segment {
+  height: 100%;
+  flex-shrink: 0;
+  transition: width var(--duration-fast) var(--ease-default);
+}
+
+/* First segment rounded on left */
+.segment:first-child {
+  /* border-radius: 1px 0 0 1px; */
+}
+
+/* ================================
+ * VALUE OVERLAY
+ * ================================ */
+
+.valueOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  font-family: var(--font-system);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-text);
+  text-shadow: 
+    0 0 2px var(--color-white),
+    1px 1px 0 var(--color-white);
+  
+  pointer-events: none;
+}
+
+/* ================================
+ * LABELS
+ * ================================ */
+
+.labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.labelItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.labelDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}

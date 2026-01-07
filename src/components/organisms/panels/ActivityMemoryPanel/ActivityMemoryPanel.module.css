@@ -1,0 +1,88 @@
+/**
+ * ActivityMemoryPanel Styles
+ * Activity Monitor Memory panel
+ */
+
+.panel {
+  padding: var(--space-3);
+  background: var(--color-window-bg);
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ================================
+ * SECTIONS
+ * ================================ */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================================
+ * USAGE LABELS
+ * ================================ */
+
+.usageLabels {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ================================
+ * BREAKDOWN
+ * ================================ */
+
+.breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.breakdownItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.breakdownHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.colorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.breakdownValue {
+  margin-left: auto;
+  font-family: var(--font-mono);
+}
+
+.breakdownBar {
+  width: 100%;
+  height: 8px;
+  background: var(--color-platinum-base);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--bevel-inset);
+  overflow: hidden;
+}
+
+.breakdownFill {
+  height: 100%;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  transition: width var(--duration-normal) var(--ease-default);
+}

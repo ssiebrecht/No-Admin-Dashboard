@@ -1,0 +1,100 @@
+/**
+ * HistoryGraph Styles
+ * Classic Mac OS 8/9 line graph for historical data
+ */
+
+.container {
+  width: 100%;
+  position: relative;
+  
+  /* Appearance - Inset well */
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-inset);
+  
+  /* Clipping */
+  overflow: hidden;
+}
+
+/* ================================
+ * SVG
+ * ================================ */
+
+.svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ================================
+ * GRID
+ * ================================ */
+
+.grid {
+  opacity: 1;
+}
+
+.gridLine {
+  stroke: var(--color-platinum-light);
+  stroke-width: 1;
+  stroke-dasharray: 2, 2;
+}
+
+/* ================================
+ * LINE PATH
+ * ================================ */
+
+.linePath {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ================================
+ * FILL PATH
+ * ================================ */
+
+.fillPath {
+  transition: opacity var(--duration-fast) var(--ease-default);
+}
+
+/* ================================
+ * Y-AXIS LABELS
+ * ================================ */
+
+.yAxis {
+  position: absolute;
+  right: var(--space-1);
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.yLabel {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+  
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--color-text-secondary);
+  background: var(--color-content-bg);
+  padding: 0 2px;
+}
+
+/* ================================
+ * TIME LABELS
+ * ================================ */
+
+.timeLabels {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-1) var(--space-1) 0;
+}
+
+.timeLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--color-text-secondary);
+}

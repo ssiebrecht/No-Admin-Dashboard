@@ -1,0 +1,70 @@
+/**
+ * ProgressBar Styles
+ * Classic Mac OS 8/9 progress indicator with candy-stripe option
+ */
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.track {
+  flex: 1;
+  height: 14px;
+  
+  /* Appearance - Inset well */
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-inset);
+  
+  /* Clipping */
+  overflow: hidden;
+  position: relative;
+}
+
+.fill {
+  height: 100%;
+  background: var(--color-highlight);
+  
+  /* Smooth but quick fill */
+  transition: width 150ms ease-out;
+}
+
+/* ================================
+ * STRIPED VARIANT - Candy Stripes
+ * ================================ */
+
+.striped {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--color-highlight),
+    var(--color-highlight) 4px,
+    var(--color-highlight-light) 4px,
+    var(--color-highlight-light) 8px
+  );
+  background-size: 16px 16px;
+  animation: stripe-animation 0.5s linear infinite;
+}
+
+@keyframes stripe-animation {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 16px 0;
+  }
+}
+
+/* ================================
+ * LABEL
+ * ================================ */
+
+.label {
+  font-family: var(--font-system);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  min-width: 32px;
+  text-align: right;
+}

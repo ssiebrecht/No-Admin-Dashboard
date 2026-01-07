@@ -1,0 +1,264 @@
+/**
+ * Dialog Styles
+ * Classic Mac OS 8/9 modal dialog appearance
+ */
+
+.dialog {
+  /* Positioning */
+  position: relative;
+  z-index: var(--z-modal);
+  
+  /* Sizing */
+  min-width: 300px;
+  max-width: 500px;
+  
+  /* Appearance */
+  background: var(--color-window-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  
+  /* Classic Mac OS dialog shadow */
+  box-shadow: var(--shadow-dialog);
+  
+  /* Animation */
+  animation: dialogAppear var(--duration-fast) var(--ease-default);
+}
+
+@keyframes dialogAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ================================
+ * TITLE BAR (Optional)
+ * ================================ */
+.titleBar {
+  position: relative;
+  height: var(--titlebar-height);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-6);
+  
+  /* 3D bevel effect */
+  box-shadow: var(--bevel-title);
+}
+
+/* Classic striped pattern */
+.titleBarStripes {
+  position: absolute;
+  inset: 3px 22px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-platinum-light) 0px,
+    var(--color-platinum-light) 1px,
+    var(--color-window-bg) 1px,
+    var(--color-window-bg) 2px
+  );
+  pointer-events: none;
+}
+
+.titleText {
+  position: relative;
+  z-index: 1;
+  background: var(--color-surface);
+  padding: 0 var(--space-2);
+  font-size: var(--text-sm);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+}
+
+.closeButton {
+  position: absolute;
+  left: var(--space-1);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 13px;
+  height: 11px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-raised);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  line-height: 1;
+  padding: 0;
+  color: var(--color-text);
+}
+
+.closeButton:hover {
+  background: var(--color-platinum-lightest);
+}
+
+.closeButton:active {
+  box-shadow: var(--bevel-inset);
+  background: var(--color-platinum-base);
+}
+
+/* ================================
+ * BODY
+ * ================================ */
+.body {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  align-items: flex-start;
+}
+
+/* ================================
+ * ICON
+ * ================================ */
+.iconContainer {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  line-height: 1;
+}
+
+/* ================================
+ * CONTENT
+ * ================================ */
+.content {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-system);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+}
+
+/* ================================
+ * ACTIONS (Stacked Buttons)
+ * Classic Mac OS: Buttons are stacked vertically on the right
+ * ================================ */
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-2);
+  padding: 0 var(--space-6) var(--space-6);
+}
+
+/* ================================
+ * ACTION BUTTON
+ * Inline button style matching Button atom
+ * ================================ */
+.actionButton {
+  /* Typography */
+  font-family: var(--font-system);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-none);
+  text-align: center;
+  
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: var(--button-height-md);
+  padding: 0 var(--space-3);
+  
+  /* Appearance */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-raised);
+  color: var(--color-text);
+  
+  /* Behavior */
+  cursor: pointer;
+  white-space: nowrap;
+  
+  /* Reset */
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.actionButton:hover {
+  background: var(--color-platinum-lightest);
+}
+
+.actionButton:active:not(:disabled) {
+  background: var(--color-platinum-base);
+  box-shadow: var(--bevel-inset);
+}
+
+.actionButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.actionButton:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+/* Danger variant */
+.actionButtonDanger {
+  background: var(--color-error);
+  color: var(--color-text-inverse);
+  border-color: var(--color-error-dark);
+  box-shadow:
+    inset 1px 1px 0 var(--color-error-light),
+    inset -1px -1px 0 var(--color-error-dark);
+}
+
+.actionButtonDanger:hover {
+  background: var(--color-error-light);
+}
+
+.actionButtonDanger:active:not(:disabled) {
+  background: var(--color-error-dark);
+  box-shadow:
+    inset 1px 1px 0 var(--color-error-dark),
+    inset -1px -1px 0 var(--color-error-light);
+}
+
+/* ================================
+ * DEFAULT BUTTON
+ * Classic Mac: Extra black outline around default button
+ * ================================ */
+.defaultButton {
+  outline: 2px solid var(--color-black);
+  outline-offset: 3px;
+}
+
+/* Ensure focus state doesn't conflict */
+.defaultButton:focus-visible {
+  outline: 2px solid var(--color-black);
+  outline-offset: 3px;
+}
+
+/* ================================
+ * BORDER FRAME (3D Effect)
+ * ================================ */
+.borderFrame {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: var(--radius-sm);
+  
+  /* 3D bevel effect */
+  box-shadow:
+    inset 1px 1px 0 var(--color-bevel-light),
+    inset -1px -1px 0 var(--color-bevel-dark);
+}

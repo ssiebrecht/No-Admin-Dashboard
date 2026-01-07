@@ -1,0 +1,58 @@
+/**
+ * Toolbar Styles
+ * Classic Mac OS 8/9 toolbar
+ */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  min-height: 28px;
+  
+  /* Appearance */
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--bevel-raised);
+}
+
+/* ================================
+ * TOOLBAR BUTTON
+ * ================================ */
+
+.toolbarButton {
+  /* Icon-only buttons have equal padding */
+  min-width: var(--button-height-sm);
+  padding: 0 var(--space-1);
+}
+
+.toolbarButton:empty {
+  /* If no label, center the icon */
+  padding: 0 var(--space-1);
+}
+
+/* ================================
+ * SEPARATOR
+ * ================================ */
+
+.separator {
+  height: 18px;
+  margin: 0 var(--space-1);
+}
+
+/* ================================
+ * SPACER
+ * ================================ */
+
+.spacer {
+  flex: 1;
+}
+
+/* ================================
+ * CUSTOM ITEM
+ * ================================ */
+
+.customItem {
+  display: flex;
+  align-items: center;
+}

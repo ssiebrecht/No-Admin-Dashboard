@@ -1,0 +1,59 @@
+/**
+ * FormField Styles
+ * Classic Mac OS 8/9 form field layout
+ */
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  width: 100%;
+}
+
+/* ================================
+ * LABEL
+ * ================================ */
+
+.label {
+  display: block;
+}
+
+.required {
+  color: var(--color-error);
+  margin-left: var(--space-0-5);
+}
+
+/* ================================
+ * INPUT WRAPPER
+ * ================================ */
+
+.inputWrapper {
+  width: 100%;
+}
+
+/* ================================
+ * FEEDBACK MESSAGES
+ * ================================ */
+
+.error,
+.hint {
+  margin-top: var(--space-0-5);
+  line-height: var(--leading-tight);
+}
+
+.error {
+  color: var(--color-error);
+}
+
+.hint {
+  color: var(--color-text-secondary);
+}
+
+/* ================================
+ * ERROR STATE
+ * ================================ */
+
+.hasError .inputWrapper :global(.wrapper) input,
+.hasError .inputWrapper :global(.wrapper) select {
+  border-color: var(--color-error);
+}

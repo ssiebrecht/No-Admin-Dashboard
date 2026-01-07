@@ -1,0 +1,139 @@
+/**
+ * DiskPanel Styles
+ * Activity Monitor Disk panel
+ */
+
+.panel {
+  padding: var(--space-3);
+  background: var(--color-window-bg);
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ================================
+ * SECTIONS
+ * ================================ */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================================
+ * USAGE LABELS
+ * ================================ */
+
+.usageLabels {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ================================
+ * SPEEDS GRID
+ * ================================ */
+
+.speedsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.speedItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.speedHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.speedDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.speedValue {
+  margin-left: auto;
+  font-family: var(--font-mono);
+}
+
+.speedBar {
+  width: 100%;
+  height: 10px;
+  background: var(--color-platinum-base);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--bevel-inset);
+  overflow: hidden;
+}
+
+.speedFill {
+  height: 100%;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  transition: width var(--duration-fast) var(--ease-default);
+}
+
+/* ================================
+ * LEGEND
+ * ================================ */
+
+.legend {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+/* ================================
+ * INFO GRID
+ * ================================ */
+
+.infoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-inset);
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================================
+ * TYPOGRAPHY
+ * ================================ */
+
+.mono {
+  font-family: var(--font-mono);
+}

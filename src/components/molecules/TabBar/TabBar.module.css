@@ -1,0 +1,119 @@
+/**
+ * TabBar Styles
+ * Classic Mac OS 8/9 folder tab navigation
+ */
+
+.tabBar {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-0-5);
+  padding: 0 var(--space-1);
+  
+  /* Bottom border that runs under inactive tabs */
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+/* ================================
+ * TAB
+ * ================================ */
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  min-height: 24px;
+  
+  /* Typography */
+  font-family: var(--font-system);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  
+  /* Appearance - Folder tab shape */
+  background: var(--color-platinum-base);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  
+  /* Position */
+  position: relative;
+  bottom: -1px;
+  z-index: 0;
+  
+  /* Bevel for inactive */
+  box-shadow: 
+    inset 1px 1px 0 var(--color-bevel-light),
+    inset -1px 0 0 var(--color-bevel-dark);
+  
+  /* Behavior */
+  cursor: pointer;
+  white-space: nowrap;
+  
+  /* Reset */
+  outline: none;
+}
+
+.tab:hover:not(.active):not(.disabled) {
+  background: var(--color-platinum-light);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+  z-index: 2;
+}
+
+/* ================================
+ * ACTIVE STATE
+ * ================================ */
+
+.active {
+  background: var(--color-content-bg);
+  z-index: 1;
+  
+  /* Cover the bottom border */
+  border-bottom: 1px solid var(--color-content-bg);
+  margin-bottom: -1px;
+  padding-bottom: calc(var(--space-1) + 1px);
+  
+  /* Stronger bevel */
+  box-shadow: 
+    inset 1px 1px 0 var(--color-bevel-light),
+    inset -1px 0 0 var(--color-bevel-dark),
+    0 1px 0 var(--color-content-bg);
+}
+
+.active:hover {
+  background: var(--color-content-bg);
+}
+
+/* ================================
+ * DISABLED STATE
+ * ================================ */
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ================================
+ * TAB ICON
+ * ================================ */
+
+.tabIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ================================
+ * SPACER
+ * ================================ */
+
+.spacer {
+  flex: 1;
+  border-bottom: none;
+}

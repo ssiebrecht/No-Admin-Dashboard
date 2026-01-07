@@ -1,0 +1,86 @@
+/**
+ * ControlPanelIcon Molecule Styles
+ * Classic Mac OS 8/9 control panel icon in grid
+ */
+
+.controlPanelIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 80px;
+  height: 80px;
+  padding: var(--space-2);
+  
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: default;
+  user-select: none;
+  
+  transition: background var(--duration-fast) var(--ease-default);
+}
+
+.controlPanelIcon:focus {
+  outline: none;
+}
+
+.controlPanelIcon:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-size-lg);
+  height: var(--icon-size-lg);
+  margin-bottom: var(--space-1);
+  border-radius: var(--radius-sm);
+}
+
+.icon {
+  font-size: 28px;
+  line-height: 1;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
+}
+
+.label {
+  width: 100%;
+  text-align: center;
+  color: var(--color-text);
+  font-size: var(--text-xs);
+  line-height: var(--leading-tight);
+}
+
+/* Hover state */
+.controlPanelIcon:hover {
+  background: rgba(51, 102, 204, 0.1);
+}
+
+/* Selected state */
+.selected {
+  background: rgba(51, 102, 204, 0.15);
+}
+
+.selected .iconWrapper {
+  background: rgba(51, 102, 204, 0.2);
+}
+
+.selected .label {
+  background: var(--color-highlight);
+  color: var(--color-highlight-text);
+  border-radius: var(--radius-sm);
+  padding: var(--space-0-5) var(--space-1);
+  margin: calc(var(--space-0-5) * -1) calc(var(--space-1) * -1);
+}
+
+/* Active/Press state */
+.controlPanelIcon:active {
+  background: rgba(51, 102, 204, 0.2);
+}
+
+.controlPanelIcon:active .iconWrapper {
+  transform: scale(0.95);
+}

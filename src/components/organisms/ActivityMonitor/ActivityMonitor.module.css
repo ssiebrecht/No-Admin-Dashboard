@@ -1,0 +1,41 @@
+/**
+ * ActivityMonitor Styles
+ * Classic Mac OS 8/9 Activity Monitor
+ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-window-bg);
+}
+
+/* ================================
+ * TAB BAR
+ * ================================ */
+
+.tabBar {
+  flex-shrink: 0;
+  background: var(--color-surface);
+}
+
+/* ================================
+ * CONTENT
+ * ================================ */
+
+.content {
+  flex: 1;
+  overflow: hidden;
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  border-top: none;
+  margin: 0 var(--space-1);
+}
+
+/* ================================
+ * STATUS BAR
+ * ================================ */
+
+.statusBar {
+  flex-shrink: 0;
+}

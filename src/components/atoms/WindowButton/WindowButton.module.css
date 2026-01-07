@@ -1,0 +1,135 @@
+/**
+ * WindowButton Styles
+ * Classic Mac OS 8/9 window control buttons
+ * Size: 13x11 pixels
+ */
+
+.button {
+  /* Size - Classic Mac dimensions */
+  width: 13px;
+  height: 11px;
+  padding: 0;
+  
+  /* Appearance */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-raised);
+  
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Behavior */
+  cursor: pointer;
+  flex-shrink: 0;
+  
+  /* Reset */
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--color-platinum-lightest);
+}
+
+.button:active:not(:disabled) {
+  box-shadow: var(--bevel-inset);
+  background: var(--color-platinum-base);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.button.disabled,
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Icon container */
+.icon {
+  display: block;
+  width: 7px;
+  height: 7px;
+  position: relative;
+}
+
+/* ================================
+ * CLOSE BUTTON - X Pattern
+ * ================================ */
+.close .icon::before,
+.close .icon::after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 1px;
+  background: var(--color-text);
+  top: 50%;
+  left: 50%;
+}
+
+.close .icon::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.close .icon::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.close:active:not(:disabled) .icon::before,
+.close:active:not(:disabled) .icon::after {
+  background: var(--color-text);
+}
+
+/* ================================
+ * ZOOM BUTTON - Square Pattern
+ * ================================ */
+.zoom .icon {
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--color-text);
+  background: transparent;
+}
+
+.zoom .icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-text);
+}
+
+/* ================================
+ * COLLAPSE BUTTON - Double Line Pattern (Window Shade)
+ * ================================ */
+.collapse .icon {
+  width: 9px;
+  height: 7px;
+  position: relative;
+}
+
+.collapse .icon::before,
+.collapse .icon::after {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 1px;
+  background: var(--color-text);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.collapse .icon::before {
+  top: 1px;
+}
+
+.collapse .icon::after {
+  bottom: 1px;
+}

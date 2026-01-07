@@ -1,0 +1,78 @@
+/**
+ * QuickActions Styles
+ * Classic Mac OS 8/9 quick actions panel
+ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  
+  /* Appearance */
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  
+  /* Typography */
+  font-family: var(--font-system);
+}
+
+/* Header */
+.header {
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.title {
+  margin: 0;
+}
+
+/* Action List */
+.actionList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* Action Button Override */
+.actionButton {
+  justify-content: flex-start;
+  text-align: left;
+  padding-left: var(--space-2);
+  padding-right: var(--space-2);
+}
+
+/* Hover effect */
+.actionButton:hover {
+  background: var(--color-surface);
+}
+
+/* Active/Focus states */
+.actionButton:active {
+  background: var(--color-highlight);
+  color: var(--color-highlight-text);
+}
+
+.actionButton:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: -2px;
+}
+
+/* Icon styling within button */
+.actionButton span {
+  color: inherit;
+}
+
+/* Disabled state */
+.actionButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .container {
+    padding: var(--space-2);
+  }
+}

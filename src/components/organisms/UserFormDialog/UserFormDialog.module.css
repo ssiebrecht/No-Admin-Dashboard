@@ -1,0 +1,21 @@
+/**
+ * UserFormDialog Styles
+ * Classic Mac OS 8/9 user form dialog
+ */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 280px;
+}
+
+/* ================================
+ * CHECKBOX ROW
+ * ================================ */
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-1);
+}

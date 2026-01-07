@@ -1,0 +1,20 @@
+/**
+ * ControlPanelGrid Styles
+ * Grid layout for control panel icons
+ */
+
+.container {
+  flex: 1;
+  padding: var(--space-3);
+  background: var(--color-content-bg);
+  min-height: 0;
+  overflow: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 100px);
+  gap: var(--space-2);
+  justify-content: start;
+  align-content: start;
+}

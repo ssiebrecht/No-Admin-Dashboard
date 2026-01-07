@@ -1,0 +1,27 @@
+/**
+ * ToastContainer Organism Styles
+ * Fixed container for toast notifications
+ */
+
+.container {
+  /* Fixed position - top right, under menu bar */
+  position: fixed;
+  top: 28px;
+  right: var(--space-2);
+  
+  /* Stack layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  
+  /* Z-index for notifications */
+  z-index: var(--z-notification);
+  
+  /* Don't block clicks in empty area */
+  pointer-events: none;
+}
+
+/* Allow clicks on toast items */
+.container > * {
+  pointer-events: auto;
+}

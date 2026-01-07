@@ -1,0 +1,147 @@
+/**
+ * WindowTitleBar Styles
+ * Classic Mac OS 8/9 striped title bar
+ */
+
+.titleBar {
+  /* Size */
+  height: var(--titlebar-height);
+  min-height: var(--titlebar-height);
+  
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1);
+  padding: 0 var(--space-1);
+  
+  /* Appearance - Base */
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  
+  /* Behavior */
+  cursor: grab;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.titleBar:active {
+  cursor: grabbing;
+}
+
+/* ================================
+ * ACTIVE STATE - Horizontal Stripes!
+ * Classic Mac OS signature look
+ * ================================ */
+.titleBar.active {
+  /* Horizontal stripes pattern using repeating gradient */
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-platinum-lightest) 0px,
+    var(--color-platinum-lightest) 1px,
+    var(--color-platinum-dark) 1px,
+    var(--color-platinum-dark) 2px
+  );
+  
+  /* 3D bevel effect */
+  box-shadow: 
+    inset 0 1px 0 var(--color-bevel-light),
+    inset 0 -1px 0 var(--color-border);
+}
+
+/* ================================
+ * INACTIVE STATE - Solid Gray
+ * ================================ */
+.titleBar.inactive {
+  background: var(--color-platinum-light);
+  box-shadow: 
+    inset 0 1px 0 var(--color-platinum-lightest),
+    inset 0 -1px 0 var(--color-border-light);
+}
+
+.titleBar.inactive .title {
+  color: var(--color-text-secondary);
+}
+
+/* ================================
+ * COLLAPSED STATE (Window Shade)
+ * ================================ */
+.titleBar.collapsed {
+  border-bottom: none;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+/* ================================
+ * LAYOUT SECTIONS
+ * ================================ */
+.leftControls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 20px;
+}
+
+.rightControls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 40px;
+  justify-content: flex-end;
+}
+
+/* ================================
+ * TITLE CONTAINER
+ * ================================ */
+.titleContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  overflow: hidden;
+  
+  /* Create a "cutout" effect for the title */
+  padding: 0 var(--space-2);
+}
+
+.icon {
+  font-size: var(--text-sm);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-system);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  line-height: var(--leading-none);
+  
+  /* Text overflow */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  /* Classic Mac OS title styling */
+  text-shadow: none;
+  letter-spacing: var(--tracking-tight);
+  
+  /* Add a subtle background for better readability against stripes */
+  padding: 1px 6px;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+}
+
+.titleBar.inactive .title {
+  background: transparent;
+}
+
+/* ================================
+ * BUTTON ADJUSTMENTS
+ * ================================ */
+
+/* Ensure buttons don't trigger drag */
+.leftControls button,
+.rightControls button {
+  cursor: pointer;
+}

@@ -1,0 +1,196 @@
+/**
+ * Button Styles
+ * Classic Mac OS 8/9 button with 3D bevel effect
+ */
+
+.button {
+  /* Typography */
+  font-family: var(--font-system);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-none);
+  text-align: center;
+  
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  
+  /* Appearance */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-raised);
+  color: var(--color-text);
+  
+  /* Behavior */
+  cursor: pointer;
+  white-space: nowrap;
+  
+  /* Reset */
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ================================
+ * SIZE VARIANTS
+ * ================================ */
+
+.sm {
+  height: var(--button-height-sm);
+  padding: 0 var(--space-2);
+  font-size: var(--text-xs);
+  gap: var(--space-0-5);
+}
+
+.md {
+  height: var(--button-height-md);
+  padding: 0 var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.lg {
+  height: var(--button-height-lg);
+  padding: 0 var(--space-4);
+  font-size: var(--text-base);
+  gap: var(--space-1-5);
+}
+
+/* ================================
+ * VARIANT STYLES
+ * ================================ */
+
+/* Primary - Default action button */
+.primary {
+  background: var(--color-highlight);
+  color: var(--color-highlight-text);
+  border-color: var(--color-highlight-dark);
+  box-shadow:
+    inset 1px 1px 0 var(--color-highlight-light),
+    inset -1px -1px 0 var(--color-highlight-dark);
+}
+
+.primary:active:not(:disabled) {
+  background: var(--color-highlight-dark);
+  box-shadow:
+    inset 1px 1px 0 var(--color-highlight-dark),
+    inset -1px -1px 0 var(--color-highlight-light);
+}
+
+/* Secondary - Standard button */
+.secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.secondary:active:not(:disabled) {
+  background: var(--color-platinum-base);
+  box-shadow: var(--bevel-inset);
+}
+
+/* Danger - Destructive action */
+.danger {
+  background: var(--color-error);
+  color: var(--color-text-inverse);
+  border-color: var(--color-error-dark);
+  box-shadow:
+    inset 1px 1px 0 var(--color-error-light),
+    inset -1px -1px 0 var(--color-error-dark);
+}
+
+.danger:active:not(:disabled) {
+  background: var(--color-error-dark);
+  box-shadow:
+    inset 1px 1px 0 var(--color-error-dark),
+    inset -1px -1px 0 var(--color-error-light);
+}
+
+/* Ghost - Minimal styling */
+.ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--color-text);
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--color-platinum-light);
+  border-color: var(--color-border-light);
+}
+
+.ghost:active:not(:disabled) {
+  background: var(--color-platinum-base);
+  box-shadow: var(--bevel-inset);
+  border-color: var(--color-border);
+}
+
+/* ================================
+ * STATES
+ * ================================ */
+
+.button:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.button.disabled,
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ================================
+ * MODIFIERS
+ * ================================ */
+
+.fullWidth {
+  width: 100%;
+}
+
+/* ================================
+ * LOADING STATE
+ * ================================ */
+
+.loading {
+  cursor: wait;
+}
+
+.loading .content {
+  opacity: 0.7;
+}
+
+.spinner {
+  width: 10px;
+  height: 10px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: var(--radius-full);
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================================
+ * ICON CONTAINERS
+ * ================================ */
+
+.iconLeft,
+.iconRight {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.content {
+  display: inline-block;
+}

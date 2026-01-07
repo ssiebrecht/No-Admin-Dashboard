@@ -1,0 +1,115 @@
+/**
+ * Select Styles
+ * Classic Mac OS 8/9 dropdown with raised bevel effect
+ */
+
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+}
+
+.select {
+  /* Size */
+  width: 100%;
+  height: var(--input-height-md);
+  padding: 0 var(--space-6) 0 var(--space-2);
+  
+  /* Typography */
+  font-family: var(--font-system);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  
+  /* Appearance - Raised Bevel */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-raised);
+  
+  /* Behavior */
+  cursor: pointer;
+  
+  /* Reset */
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* ================================
+ * ARROW INDICATOR
+ * ================================ */
+
+.arrow {
+  position: absolute;
+  right: var(--space-2);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 8px;
+  color: var(--color-text);
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* ================================
+ * STATES
+ * ================================ */
+
+.select:focus {
+  border-color: var(--color-focus);
+  box-shadow: 
+    var(--bevel-raised),
+    0 0 0 1px var(--color-focus-ring);
+}
+
+.select:active:not(:disabled) {
+  box-shadow: var(--bevel-inset);
+  background: var(--color-platinum-base);
+}
+
+.wrapper.disabled .select,
+.select:disabled {
+  background: var(--color-platinum-light);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.wrapper.disabled .arrow {
+  color: var(--color-text-disabled);
+}
+
+/* ================================
+ * ERROR STATE
+ * ================================ */
+
+.wrapper.error .select {
+  border-color: var(--color-error);
+}
+
+.wrapper.error .select:focus {
+  border-color: var(--color-error);
+  box-shadow: 
+    var(--bevel-raised),
+    0 0 0 1px rgba(204, 0, 0, 0.3);
+}
+
+/* ================================
+ * OPTION STYLING
+ * Native select options have limited styling
+ * ================================ */
+
+.select option {
+  background: var(--color-content-bg);
+  color: var(--color-text);
+  padding: var(--space-1);
+}
+
+.select option:disabled {
+  color: var(--color-text-disabled);
+}
+
+.select option:checked {
+  background: var(--color-highlight);
+  color: var(--color-highlight-text);
+}

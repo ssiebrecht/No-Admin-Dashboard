@@ -1,0 +1,109 @@
+/**
+ * SearchField Styles
+ * Classic Mac OS 8/9 search input combo
+ */
+
+.searchField {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-inset);
+}
+
+/* ================================
+ * INPUT CONTAINER
+ * ================================ */
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 150px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  pointer-events: none;
+}
+
+.loadingIcon {
+  position: absolute;
+  right: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================================
+ * INPUT
+ * ================================ */
+
+.input {
+  width: 100%;
+  height: var(--input-height-md);
+  padding: 0 var(--space-2);
+  padding-left: var(--space-6);
+  padding-right: var(--space-6);
+  
+  /* Typography */
+  font-family: var(--font-system);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  
+  /* Appearance */
+  background: var(--color-content-bg);
+  border: none;
+  outline: none;
+  
+  /* Reset */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input::placeholder {
+  color: var(--color-text-disabled);
+}
+
+.input:focus {
+  outline: none;
+}
+
+/* ================================
+ * SEARCH BUTTON
+ * ================================ */
+
+.searchButton {
+  flex-shrink: 0;
+  border-left: 1px solid var(--color-border);
+  border-radius: 0;
+}
+
+/* ================================
+ * STATES
+ * ================================ */
+
+.searchField:focus-within {
+  border-color: var(--color-focus);
+  box-shadow: 
+    var(--bevel-inset),
+    0 0 0 1px var(--color-focus-ring);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled .input {
+  cursor: not-allowed;
+  background: var(--color-platinum-light);
+}

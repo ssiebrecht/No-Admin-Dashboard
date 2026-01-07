@@ -1,0 +1,43 @@
+/**
+ * StatusIcon Atom Styles
+ * Classic Mac OS 8/9 menu bar status icon styling
+ */
+
+.statusIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--menubar-height);
+  height: var(--menubar-height);
+  padding: 0 var(--space-1);
+  
+  font-family: var(--font-system);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  
+  background: transparent;
+  border: none;
+  cursor: default;
+  user-select: none;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  background: var(--color-highlight);
+  color: var(--color-highlight-text);
+}
+
+.active {
+  background: var(--color-highlight);
+  color: var(--color-highlight-text);
+}
+
+.iconContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}

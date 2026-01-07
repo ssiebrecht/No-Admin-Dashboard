@@ -1,0 +1,88 @@
+/**
+ * SoundPanel Styles
+ * Classic Mac OS 8/9 sound settings panel
+ */
+
+.panel {
+  padding: var(--space-4);
+  background: var(--color-window-bg);
+  height: 100%;
+  overflow-y: auto;
+}
+
+.section {
+  margin-bottom: var(--space-5);
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+/* Volume Control */
+.volumeControl {
+  margin-bottom: var(--space-2);
+}
+
+/* Alert Sound List */
+.alertSoundList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-px);
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--bevel-inset);
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.alertSoundItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1-5) var(--space-2);
+  
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  
+  transition: background var(--duration-fast) var(--ease-default);
+}
+
+.alertSoundItem:hover {
+  background: var(--color-platinum-lightest);
+}
+
+.alertSoundItem:focus {
+  outline: none;
+}
+
+.alertSoundItem:focus-visible {
+  background: var(--color-platinum-light);
+  outline: 2px solid var(--color-focus) inset;
+}
+
+.alertSoundItem.selected {
+  background: var(--color-highlight);
+  color: var(--color-highlight-text);
+}
+
+.alertSoundItem.selected:hover {
+  background: var(--color-highlight-light);
+}
+
+.alertSoundItem.selected p {
+  color: var(--color-highlight-text);
+}
+
+.soundIcon {
+  font-size: var(--text-base);
+  line-height: 1;
+}

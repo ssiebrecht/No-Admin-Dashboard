@@ -1,0 +1,44 @@
+/**
+ * Icon Styles
+ * Classic Mac OS 8/9 icon sizing
+ */
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+  vertical-align: middle;
+  
+  /* Prevent emoji color overrides */
+  font-style: normal;
+}
+
+/* ================================
+ * SIZE VARIANTS
+ * ================================ */
+
+.sm {
+  width: var(--icon-size-xs);
+  height: var(--icon-size-xs);
+  font-size: 10px;
+}
+
+.md {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+  font-size: 14px;
+}
+
+.lg {
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+  font-size: 20px;
+}
+
+.xl {
+  width: var(--icon-size-lg);
+  height: var(--icon-size-lg);
+  font-size: 28px;
+}

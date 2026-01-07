@@ -1,0 +1,129 @@
+/**
+ * DisplayPanel Styles
+ * Classic Mac OS 8/9 display settings panel
+ */
+
+.panel {
+  padding: var(--space-4);
+  background: var(--color-window-bg);
+  height: 100%;
+  overflow-y: auto;
+}
+
+.section {
+  margin-bottom: var(--space-5);
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+/* Resolution Options */
+.resolutionOptions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Scaling Options */
+.scalingOptions {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.scalingOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  
+  width: 80px;
+  padding: var(--space-2);
+  
+  background: var(--color-content-bg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.scalingOption:hover {
+  background: var(--color-platinum-lightest);
+  border-color: var(--color-border-dark);
+}
+
+.scalingOption:focus {
+  outline: none;
+}
+
+.scalingOption:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.scalingSelected {
+  background: var(--color-highlight);
+  border-color: var(--color-highlight);
+}
+
+.scalingSelected:hover {
+  background: var(--color-highlight-light);
+  border-color: var(--color-highlight-light);
+}
+
+.scalingSelected span {
+  color: var(--color-highlight-text);
+}
+
+.scalingPreview {
+  width: 40px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.scalingSelected .scalingPreview {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.scalingIcon {
+  font-size: 20px;
+  line-height: 1;
+  transition: transform var(--duration-normal) var(--ease-default);
+}
+
+/* Brightness Control */
+.brightnessControl {
+  margin-bottom: var(--space-2);
+}
+
+/* Display Info */
+.displayInfo {
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--bevel-inset);
+  padding: var(--space-2);
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-1) 0;
+}
+
+.infoRow:not(:last-child) {
+  border-bottom: 1px solid var(--color-border-light);
+}

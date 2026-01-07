@@ -1,0 +1,172 @@
+/**
+ * ActivityGraph Styles
+ * Classic Mac OS 8/9 bar chart
+ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  
+  /* Appearance */
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  
+  /* Typography */
+  font-family: var(--font-system);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.title {
+  margin: 0;
+}
+
+.summary {
+  margin: 0;
+}
+
+/* Chart Container */
+.chart {
+  position: relative;
+  height: 100px;
+  padding-bottom: var(--space-5);
+}
+
+/* Bars Container */
+.bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-1);
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Individual Bar */
+.barContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.barWrapper {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.bar {
+  width: calc(100% - 4px);
+  max-width: 32px;
+  min-height: 4px;
+  position: relative;
+  
+  /* Appearance */
+  background: linear-gradient(
+    180deg,
+    var(--color-highlight-light) 0%,
+    var(--color-highlight) 50%,
+    var(--color-highlight-dark) 100%
+  );
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  
+  /* Bevel effect */
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.3),
+    inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  
+  /* Animation */
+  transition: height var(--duration-slow) var(--ease-default);
+}
+
+.barHighlight {
+  background: linear-gradient(
+    180deg,
+    var(--color-success-light) 0%,
+    var(--color-success) 50%,
+    var(--color-success-dark) 100%
+  );
+}
+
+/* Bar Value Label */
+.barValue {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-default);
+}
+
+.barContainer:hover .barValue {
+  opacity: 1;
+}
+
+/* Day Label */
+.label {
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Grid Lines */
+.gridLines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: var(--space-5);
+  pointer-events: none;
+}
+
+.gridLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-border-light);
+  opacity: 0.5;
+}
+
+/* Hover effect on bars */
+.bar:hover {
+  filter: brightness(1.1);
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .container {
+    padding: var(--space-2);
+  }
+  
+  .chart {
+    height: 80px;
+  }
+  
+  .barWrapper {
+    height: 80px;
+  }
+  
+  .bar {
+    max-width: 24px;
+  }
+}

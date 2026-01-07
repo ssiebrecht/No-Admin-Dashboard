@@ -1,0 +1,59 @@
+/**
+ * UserManagement Styles
+ * Classic Mac OS 8/9 user management layout
+ */
+
+.userManagement {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  
+  /* Appearance */
+  background: var(--color-surface);
+}
+
+/* ================================
+ * TOOLBAR
+ * ================================ */
+
+.toolbar {
+  flex-shrink: 0;
+}
+
+/* ================================
+ * SPLIT PANEL
+ * ================================ */
+
+.splitPanel {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ================================
+ * USER LIST (Left Panel)
+ * ================================ */
+
+.userList {
+  flex-shrink: 0;
+  width: 250px;
+}
+
+/* ================================
+ * USER DETAIL (Right Panel)
+ * ================================ */
+
+.userDetail {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ================================
+ * STATUS BAR
+ * ================================ */
+
+.statusBar {
+  flex-shrink: 0;
+}

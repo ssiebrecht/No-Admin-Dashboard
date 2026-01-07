@@ -1,0 +1,1 @@
+export { SoundPanel } from './SoundPanel';

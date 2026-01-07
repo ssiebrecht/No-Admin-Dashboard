@@ -1,0 +1,127 @@
+/**
+ * WelcomeBanner Styles
+ * Classic Mac OS 8/9 welcome banner
+ */
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  
+  /* Gradient Background */
+  background: linear-gradient(
+    135deg,
+    var(--color-highlight) 0%,
+    var(--color-highlight-dark) 50%,
+    var(--color-accent-purple) 100%
+  );
+  
+  /* Bevel Effect */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.15);
+  
+  /* Typography */
+  color: var(--color-white);
+  font-family: var(--font-system);
+  
+  /* Layout */
+  min-height: 80px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Content Container */
+.content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  z-index: 1;
+}
+
+/* Icon Container */
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  
+  /* Subtle glass effect */
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* Text Container */
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.greeting {
+  color: var(--color-white) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  line-height: var(--leading-tight);
+}
+
+.date {
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+/* Decoration */
+.decoration {
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.decorIcon {
+  font-size: 32px;
+  opacity: 0.9;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Subtle pattern overlay */
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .banner {
+    padding: var(--space-3) var(--space-4);
+    min-height: 70px;
+  }
+  
+  .iconContainer {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .decorIcon {
+    font-size: 24px;
+  }
+}

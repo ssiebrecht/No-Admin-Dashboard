@@ -1,0 +1,137 @@
+/**
+ * StatCard Styles
+ * Classic Mac OS 8/9 statistics card
+ */
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  
+  /* Appearance */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-raised);
+  
+  /* Typography */
+  font-family: var(--font-system);
+  
+  /* Layout */
+  min-height: 80px;
+  border-radius: var(--radius-sm);
+}
+
+/* Clickable State */
+.clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.clickable:hover {
+  background: var(--color-surface-raised);
+}
+
+.clickable:active {
+  box-shadow: var(--bevel-inset);
+  background: var(--color-surface-sunken);
+}
+
+.clickable:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+/* Icon Container */
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  
+  /* Subtle background */
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--bevel-inset);
+}
+
+.icon {
+  color: var(--color-highlight);
+}
+
+/* Content */
+.content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+}
+
+.label {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  font-size: var(--text-xs);
+}
+
+.valueRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.value {
+  margin: 0;
+  color: var(--color-text-primary);
+  line-height: var(--leading-none);
+}
+
+.subtitle {
+  margin: 0;
+}
+
+/* Trend Indicators */
+.trend {
+  font-size: var(--text-xs);
+  line-height: 1;
+}
+
+.trendUp {
+  color: var(--color-success);
+}
+
+.trendDown {
+  color: var(--color-error);
+}
+
+.trendNeutral {
+  color: var(--color-gray-medium);
+}
+
+/* Arrow for clickable cards */
+.arrow {
+  flex-shrink: 0;
+  color: var(--color-text-secondary);
+  opacity: 0.5;
+}
+
+.clickable:hover .arrow {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .card {
+    padding: var(--space-2) var(--space-3);
+    min-height: 70px;
+  }
+  
+  .iconContainer {
+    width: 40px;
+    height: 40px;
+  }
+}

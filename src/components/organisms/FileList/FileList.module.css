@@ -1,0 +1,188 @@
+/**
+ * FileList Styles
+ * Classic Mac OS 8/9 file listing styling
+ */
+
+/* ============================================
+ * BASE STYLES
+ * ============================================ */
+
+.fileList {
+  flex: 1;
+  overflow: auto;
+  background: var(--color-content-bg);
+}
+
+/* ============================================
+ * ICONS VIEW
+ * ============================================ */
+
+.icons {
+  padding: var(--space-2);
+}
+
+.iconGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-content: flex-start;
+}
+
+/* ============================================
+ * LIST VIEW
+ * ============================================ */
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* List Header */
+.listHeader {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 var(--space-2);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--bevel-raised);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.headerCell {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-1);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-system);
+  text-align: left;
+  height: 100%;
+}
+
+.headerCell:hover {
+  background: var(--color-platinum-light);
+}
+
+.headerCell:active {
+  background: var(--color-highlight);
+  color: var(--color-highlight-text);
+}
+
+.nameHeader {
+  flex: 1;
+  min-width: 0;
+}
+
+.dateHeader {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.sizeHeader {
+  width: 70px;
+  flex-shrink: 0;
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.kindHeader {
+  width: 140px;
+  flex-shrink: 0;
+  padding-left: var(--space-2);
+}
+
+/* List Body */
+.listBody {
+  flex: 1;
+  overflow: auto;
+}
+
+/* ============================================
+ * COLUMNS VIEW (Miller Columns)
+ * ============================================ */
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.columnsContainer {
+  display: flex;
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.column {
+  width: 180px;
+  min-width: 180px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--color-border);
+  background: var(--color-content-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.columnContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-1) 0;
+}
+
+.columnEmpty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: var(--space-4);
+}
+
+/* Preview Column (rightmost) */
+.previewColumn {
+  width: 200px;
+  min-width: 200px;
+  flex-shrink: 0;
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+}
+
+/* ============================================
+ * SCROLLBAR STYLING (Classic Mac Style)
+ * ============================================ */
+
+.fileList::-webkit-scrollbar,
+.listBody::-webkit-scrollbar,
+.columnContent::-webkit-scrollbar,
+.columnsContainer::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+.fileList::-webkit-scrollbar-track,
+.listBody::-webkit-scrollbar-track,
+.columnContent::-webkit-scrollbar-track,
+.columnsContainer::-webkit-scrollbar-track {
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+}
+
+.fileList::-webkit-scrollbar-thumb,
+.listBody::-webkit-scrollbar-thumb,
+.columnContent::-webkit-scrollbar-thumb,
+.columnsContainer::-webkit-scrollbar-thumb {
+  background: var(--color-platinum-dark);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-raised);
+}
+
+.fileList::-webkit-scrollbar-thumb:hover,
+.listBody::-webkit-scrollbar-thumb:hover,
+.columnContent::-webkit-scrollbar-thumb:hover,
+.columnsContainer::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-light);
+}

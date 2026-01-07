@@ -1,0 +1,88 @@
+/**
+ * Radio Styles
+ * Classic Mac OS 8/9 radio button - 12x12px circular with inset bevel
+ */
+
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1-5);
+  cursor: pointer;
+  user-select: none;
+}
+
+.wrapper.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Hide native radio */
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Custom radio circle */
+.circle {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  
+  /* Appearance - Inset Bevel */
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  box-shadow:
+    inset 1px 1px 0 var(--color-bevel-dark),
+    inset -1px -1px 0 var(--color-bevel-light);
+  
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  position: relative;
+}
+
+/* Focus state */
+.input:focus-visible + .circle {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+/* Selected dot */
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-text);
+}
+
+/* Label */
+.label {
+  font-family: var(--font-system);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: var(--leading-normal);
+}
+
+.wrapper.disabled .label {
+  color: var(--color-text-disabled);
+}
+
+/* Hover effect (not on disabled) */
+.wrapper:not(.disabled):hover .circle {
+  background: var(--color-platinum-lightest);
+}
+
+/* Active/Press effect */
+.wrapper:not(.disabled):active .circle {
+  background: var(--color-platinum-base);
+}

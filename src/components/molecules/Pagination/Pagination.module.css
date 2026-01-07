@@ -1,0 +1,62 @@
+/**
+ * Pagination Styles
+ * Classic Mac OS 8/9 page navigation
+ */
+
+.pagination {
+  display: inline-flex;
+  align-items: center;
+  
+  /* Typography */
+  font-family: var(--font-system);
+}
+
+/* ================================
+ * CONTROLS
+ * ================================ */
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+/* ================================
+ * NAV BUTTONS
+ * ================================ */
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--button-height-sm);
+  padding: 0 var(--space-1);
+}
+
+/* Double chevron for first/last */
+.doubleIcon {
+  margin-left: -6px;
+}
+
+/* ================================
+ * PAGE INFO
+ * ================================ */
+
+.pageInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-2);
+  min-width: 100px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ================================
+ * DISABLED STATE
+ * ================================ */
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

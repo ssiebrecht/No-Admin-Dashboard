@@ -1,0 +1,43 @@
+/**
+ * MenuBarItem Molecule Styles
+ * Classic Mac OS 8/9 menu bar item styling
+ */
+
+.menuBarItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-0-5);
+  height: var(--menubar-height);
+  padding: 0 var(--space-3);
+  
+  font-family: var(--font-system);
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--color-text);
+  
+  background: transparent;
+  border: none;
+  cursor: default;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.menuBarItem:hover:not(.disabled),
+.menuBarItem.open {
+  background: var(--color-highlight);
+  color: var(--color-highlight-text);
+}
+
+.menuBarItem.disabled {
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+.icon {
+  font-size: var(--text-base);
+  line-height: 1;
+}
+
+.label {
+  line-height: 1;
+}

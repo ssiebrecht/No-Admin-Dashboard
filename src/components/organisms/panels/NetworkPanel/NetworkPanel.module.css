@@ -1,0 +1,198 @@
+/**
+ * NetworkPanel Styles
+ * Activity Monitor Network panel
+ */
+
+.panel {
+  padding: var(--space-3);
+  background: var(--color-window-bg);
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* ================================
+ * SECTIONS
+ * ================================ */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================================
+ * SPEEDS GRID
+ * ================================ */
+
+.speedsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.speedItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.speedHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.speedDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.speedValue {
+  margin-left: auto;
+  font-family: var(--font-mono);
+}
+
+.speedBar {
+  width: 100%;
+  height: 10px;
+  background: var(--color-platinum-base);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--bevel-inset);
+  overflow: hidden;
+}
+
+.speedFill {
+  height: 100%;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  transition: width var(--duration-fast) var(--ease-default);
+}
+
+/* ================================
+ * LEGEND
+ * ================================ */
+
+.legend {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+/* ================================
+ * TOTALS GRID
+ * ================================ */
+
+.totalsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.totalCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-inset);
+}
+
+.totalIcon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-white);
+  border-radius: var(--radius-sm);
+}
+
+.totalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ================================
+ * PACKETS ROW
+ * ================================ */
+
+.packetsRow {
+  display: flex;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+  padding: var(--space-2);
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-inset);
+}
+
+.packetStat {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+/* ================================
+ * INFO GRID
+ * ================================ */
+
+.infoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-inset);
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statusDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-success);
+  margin-right: var(--space-1);
+}
+
+/* ================================
+ * TYPOGRAPHY
+ * ================================ */
+
+.mono {
+  font-family: var(--font-mono);
+}

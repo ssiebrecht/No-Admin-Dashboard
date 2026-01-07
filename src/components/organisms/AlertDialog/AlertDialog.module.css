@@ -1,0 +1,11 @@
+/**
+ * AlertDialog Styles
+ * Additional styling for alert dialogs if needed
+ */
+
+/* Most styling comes from base Dialog component */
+
+/* Message spacing */
+:global(.dialog-message) {
+  margin-top: var(--space-2);
+}

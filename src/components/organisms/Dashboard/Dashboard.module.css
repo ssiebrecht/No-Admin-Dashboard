@@ -1,0 +1,193 @@
+/**
+ * Dashboard Styles
+ * Classic Mac OS 8/9 Admin Dashboard
+ */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  
+  /* Appearance */
+  background: var(--color-window-bg);
+  
+  /* Typography */
+  font-family: var(--font-system);
+  
+  /* Fill container */
+  height: 100%;
+  overflow-y: auto;
+  
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) var(--color-window-bg);
+}
+
+.dashboard::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+.dashboard::-webkit-scrollbar-track {
+  background: var(--color-window-bg);
+}
+
+.dashboard::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border: 2px solid var(--color-window-bg);
+}
+
+/* Stats Row - 3 columns */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+/* Middle Row - Activity Graph + Quick Actions */
+.middleRow {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: var(--space-3);
+}
+
+.graphContainer {
+  min-width: 0;
+}
+
+.actionsContainer {
+  min-width: 0;
+}
+
+/* Status Bar */
+.statusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  margin-top: auto;
+  
+  /* Appearance */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--bevel-raised);
+}
+
+.statusLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.statusRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Refresh Button */
+.refreshButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  
+  /* Reset */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--bevel-raised);
+  cursor: pointer;
+  
+  /* Icon color */
+  color: var(--color-text-secondary);
+}
+
+.refreshButton:hover {
+  background: var(--color-surface-raised);
+}
+
+.refreshButton:active {
+  box-shadow: var(--bevel-inset);
+}
+
+.refreshButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Spinning animation for refresh */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+/* Status Indicator */
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1-5);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-success);
+  box-shadow: 0 0 4px var(--color-success);
+}
+
+/* Responsive - Tablet */
+@media (max-width: 700px) {
+  .dashboard {
+    padding: var(--space-3);
+    gap: var(--space-3);
+  }
+  
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .statsRow > *:last-child {
+    grid-column: span 2;
+  }
+  
+  .middleRow {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 500px) {
+  .dashboard {
+    padding: var(--space-2);
+    gap: var(--space-2);
+  }
+  
+  .statsRow {
+    grid-template-columns: 1fr;
+  }
+  
+  .statsRow > *:last-child {
+    grid-column: span 1;
+  }
+  
+  .statusBar {
+    flex-direction: column;
+    gap: var(--space-2);
+    text-align: center;
+  }
+  
+  .statusLeft,
+  .statusRight {
+    justify-content: center;
+  }
+}

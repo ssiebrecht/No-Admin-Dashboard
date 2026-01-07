@@ -1,0 +1,108 @@
+/**
+ * NotificationCenter Organism Styles
+ * Dropdown notification center from the menu bar
+ */
+
+.container {
+  /* Position (will be positioned by parent) */
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: var(--space-1);
+
+  /* Sizing */
+  width: 320px;
+  max-height: 400px;
+
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+
+  /* Appearance */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-menu);
+
+  /* Z-index */
+  z-index: var(--z-menu-dropdown);
+
+  /* Animation */
+  animation: dropdownFadeIn var(--duration-fast) var(--ease-default);
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-platinum-light);
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.markReadButton {
+  padding: var(--space-1) var(--space-2);
+  background: transparent;
+  border: none;
+  font-family: var(--font-system);
+  font-size: var(--text-xs);
+  color: var(--color-highlight);
+  cursor: pointer;
+}
+
+.markReadButton:hover {
+  text-decoration: underline;
+}
+
+/* List area */
+.list {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 100px;
+  max-height: 300px;
+}
+
+/* Custom scrollbar for list */
+.list::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+.list::-webkit-scrollbar-track {
+  background: var(--color-platinum-base);
+  border-left: 1px solid var(--color-border-light);
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: var(--color-platinum-dark);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-light);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-2);
+  background: var(--color-platinum-light);
+}

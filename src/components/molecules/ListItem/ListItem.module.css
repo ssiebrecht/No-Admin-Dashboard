@@ -1,0 +1,168 @@
+/**
+ * ListItem Styles
+ * Classic Mac OS 8/9 list item
+ */
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1-5) var(--space-2);
+  min-height: 28px;
+  
+  /* Typography */
+  font-family: var(--font-system);
+  
+  /* Appearance */
+  background: transparent;
+  cursor: pointer;
+  
+  /* For hover actions */
+  position: relative;
+}
+
+/* ================================
+ * HOVER STATE
+ * ================================ */
+
+.listItem:hover {
+  background: var(--color-platinum-light);
+}
+
+.listItem:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: -2px;
+}
+
+/* ================================
+ * SELECTED STATE
+ * ================================ */
+
+.selected {
+  background: var(--color-highlight);
+  color: var(--color-highlight-text);
+}
+
+.selected:hover {
+  background: var(--color-highlight);
+}
+
+.selected .label,
+.selected .description {
+  color: var(--color-highlight-text);
+}
+
+.selected .iconWrapper {
+  color: var(--color-highlight-text);
+}
+
+/* ================================
+ * DISABLED STATE
+ * ================================ */
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  background: transparent;
+}
+
+/* ================================
+ * CHECKBOX WRAPPER
+ * ================================ */
+
+.checkboxWrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* ================================
+ * ICON WRAPPER
+ * ================================ */
+
+.iconWrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+  color: var(--color-text-secondary);
+}
+
+/* ================================
+ * CONTENT
+ * ================================ */
+
+.content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0-5);
+}
+
+.label {
+  line-height: var(--leading-tight);
+}
+
+.description {
+  line-height: var(--leading-tight);
+}
+
+/* ================================
+ * ACTIONS
+ * ================================ */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-0-5);
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-default);
+}
+
+.listItem:hover .actions,
+.listItem:focus-within .actions,
+.selected .actions {
+  opacity: 1;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  
+  /* Appearance */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-raised);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.actionButton:hover {
+  background: var(--color-platinum-light);
+}
+
+.actionButton:active {
+  background: var(--color-platinum-base);
+  box-shadow: var(--bevel-inset);
+}
+
+.actionButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.selected .actionButton {
+  background: var(--color-surface);
+  color: var(--color-text);
+}

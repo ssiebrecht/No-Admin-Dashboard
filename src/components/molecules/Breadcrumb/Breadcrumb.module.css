@@ -1,0 +1,100 @@
+/**
+ * Breadcrumb Styles
+ * Classic Mac OS 8/9 path navigation
+ */
+
+.breadcrumb {
+  font-family: var(--font-system);
+}
+
+/* ================================
+ * LIST
+ * ================================ */
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* ================================
+ * ITEM
+ * ================================ */
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+/* ================================
+ * LINK (Clickable)
+ * ================================ */
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-0-5) var(--space-1);
+  
+  /* Appearance */
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  
+  /* Reset */
+  font: inherit;
+  outline: none;
+}
+
+.link:hover {
+  color: var(--color-highlight);
+  text-decoration: underline;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 1px;
+}
+
+.link:active {
+  color: var(--color-highlight-dark);
+}
+
+/* ================================
+ * TEXT (Non-clickable)
+ * ================================ */
+
+.text {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-0-5) var(--space-1);
+  color: var(--color-text-secondary);
+}
+
+/* ================================
+ * CURRENT (Last item)
+ * ================================ */
+
+.current {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-0-5) var(--space-1);
+  color: var(--color-text);
+}
+
+/* ================================
+ * SEPARATOR
+ * ================================ */
+
+.separator {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text-disabled);
+  font-size: var(--text-xs);
+  user-select: none;
+}

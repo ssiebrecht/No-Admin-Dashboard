@@ -1,0 +1,156 @@
+/**
+ * ProcessList Styles
+ * Classic Mac OS 8/9 sortable process table
+ */
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  /* Appearance - Inset frame */
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-inset);
+}
+
+/* ================================
+ * HEADER
+ * ================================ */
+
+.header {
+  display: flex;
+  align-items: stretch;
+  
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--bevel-raised);
+  flex-shrink: 0;
+}
+
+.headerCell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  min-height: 20px;
+  
+  /* Typography */
+  font-family: var(--font-system);
+  text-align: left;
+  
+  /* Appearance */
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--color-border-light);
+  
+  /* Behavior */
+  cursor: pointer;
+  outline: none;
+}
+
+.headerCell:last-child {
+  border-right: none;
+}
+
+.headerCell:hover {
+  background: var(--color-platinum-light);
+}
+
+.headerCell:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: -2px;
+}
+
+.headerCell.sorted {
+  background: var(--color-platinum-base);
+}
+
+.sortIcon {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* ================================
+ * BODY
+ * ================================ */
+
+.body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+}
+
+/* Custom scrollbar styling */
+.body::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+.body::-webkit-scrollbar-track {
+  background: var(--color-platinum-light);
+}
+
+.body::-webkit-scrollbar-thumb {
+  background: var(--color-platinum-dark);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--bevel-raised);
+}
+
+.body::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-light);
+}
+
+/* ================================
+ * ROWS
+ * ================================ */
+
+.row {
+  display: flex;
+  align-items: center;
+  min-height: 18px;
+  border-bottom: 1px solid var(--color-platinum-light);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.alternate {
+  background: var(--color-platinum-lightest);
+}
+
+.row:hover {
+  background: var(--color-highlight);
+}
+
+.row:hover .cell * {
+  color: var(--color-highlight-text) !important;
+}
+
+/* ================================
+ * CELLS
+ * ================================ */
+
+.cell {
+  padding: var(--space-0-5) var(--space-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+/* ================================
+ * EMPTY STATE
+ * ================================ */
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+}

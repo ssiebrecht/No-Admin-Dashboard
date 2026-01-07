@@ -1,0 +1,79 @@
+/**
+ * GetInfoDialog Styles
+ * Classic Mac OS 8/9 "Get Info" dialog styling
+ */
+
+.content {
+  padding: var(--space-2) 0;
+}
+
+/* Header Section (Icon + Name) */
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+}
+
+.icon {
+  font-size: 48px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.nameSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.nameButton {
+  display: block;
+  width: 100%;
+  padding: var(--space-1);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  text-align: left;
+  cursor: text;
+  font-family: inherit;
+}
+
+.nameButton:hover {
+  border-color: var(--color-border);
+  background: var(--color-surface);
+}
+
+.nameInput {
+  width: 100%;
+}
+
+/* Info Section */
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.infoRow {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.infoLabel {
+  width: 60px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.infoValue {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.divider {
+  margin: var(--space-2) 0;
+}

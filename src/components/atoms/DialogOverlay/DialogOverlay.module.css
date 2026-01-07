@@ -1,0 +1,31 @@
+/**
+ * DialogOverlay Styles
+ * Classic Mac OS 8/9 modal overlay
+ */
+
+.overlay {
+  /* Positioning */
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal-backdrop);
+  
+  /* Layout - Center children */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Appearance */
+  background-color: rgba(0, 0, 0, 0.3);
+  
+  /* Animation */
+  animation: fadeIn var(--duration-fast) var(--ease-default);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

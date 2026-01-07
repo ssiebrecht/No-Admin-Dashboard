@@ -1,0 +1,183 @@
+/**
+ * RecentActivity Styles
+ * Classic Mac OS 8/9 activity list
+ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  
+  /* Appearance */
+  background: var(--color-content-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  
+  /* Typography */
+  font-family: var(--font-system);
+  
+  /* Layout */
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  
+  /* Appearance */
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.title {
+  margin: 0;
+}
+
+.count {
+  margin: 0;
+}
+
+/* Activity List */
+.activityList {
+  overflow-y: auto;
+  padding: var(--space-1) 0;
+  
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) var(--color-content-bg);
+}
+
+.activityList::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+.activityList::-webkit-scrollbar-track {
+  background: var(--color-content-bg);
+}
+
+.activityList::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border: 2px solid var(--color-content-bg);
+}
+
+/* Activity Item */
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1-5) var(--space-3);
+  min-height: 32px;
+  
+  /* Border for separation */
+  border-left: 3px solid transparent;
+  
+  /* Hover effect */
+  transition: background var(--duration-fast) var(--ease-default);
+}
+
+.activityItem:hover {
+  background: var(--color-surface);
+}
+
+/* Activity Type Colors */
+.typeUser {
+  border-left-color: var(--color-highlight);
+}
+
+.typeFile {
+  border-left-color: var(--color-warning);
+}
+
+.typeSystem {
+  border-left-color: var(--color-success);
+}
+
+.typeSettings {
+  border-left-color: var(--color-accent-purple);
+}
+
+/* Time */
+.time {
+  flex-shrink: 0;
+  width: 48px;
+  font-size: var(--text-xs);
+  margin: 0;
+}
+
+/* Icon Wrapper */
+.iconWrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  
+  /* Subtle background */
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+}
+
+.activityIcon {
+  color: var(--color-text-secondary);
+}
+
+/* Message */
+.message {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  
+  /* Truncate long messages */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Empty State */
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-2) var(--space-3);
+  
+  /* Appearance */
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Alternating row colors */
+.activityItem:nth-child(even) {
+  background: var(--color-surface-raised);
+}
+
+.activityItem:nth-child(even):hover {
+  background: var(--color-surface);
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .activityItem {
+    padding: var(--space-1) var(--space-2);
+  }
+  
+  .time {
+    width: 40px;
+    font-size: 9px;
+  }
+  
+  .iconWrapper {
+    width: 20px;
+    height: 20px;
+  }
+}

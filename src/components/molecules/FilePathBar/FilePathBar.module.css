@@ -1,0 +1,74 @@
+/**
+ * FilePathBar Styles
+ * Classic Mac OS 8/9 breadcrumb path styling
+ */
+
+.pathBar {
+  display: flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  min-height: 22px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-0-5);
+  overflow: hidden;
+}
+
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-0-5);
+  flex-shrink: 0;
+}
+
+/* Make the last item shrink if needed */
+.breadcrumbItem:last-child {
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.pathButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-0-5) var(--space-1);
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-system);
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.pathButton:hover {
+  background: var(--color-platinum-light);
+}
+
+.pathButton:active {
+  background: var(--color-highlight);
+  color: var(--color-highlight-text);
+}
+
+.separator {
+  font-size: 8px;
+  color: var(--color-gray-medium);
+}
+
+.currentPath {
+  display: flex;
+  align-items: center;
+  padding: var(--space-0-5) var(--space-1);
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
