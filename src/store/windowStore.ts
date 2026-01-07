@@ -173,16 +173,28 @@ export const useWindowStore = create<WindowStore>()(
                 restoreSize: undefined,
               };
             } else {
-              // Maximize window
+              // Maximize window - berücksichtige Zoom/Scaling des #root Elements
+              // Bei CSS zoom wird der Viewport effektiv kleiner
+              const rootElement = document.getElementById('root');
+              const zoomFactor = rootElement 
+                ? parseFloat(rootElement.style.zoom || '1') 
+                : 1;
+              
+              // Berechne die effektive Viewport-Größe unter Berücksichtigung des Zooms
+              // Bei zoom > 1 ist der effektiv nutzbare Bereich kleiner
+              const effectiveWidth = Math.floor(window.innerWidth / zoomFactor);
+              const effectiveHeight = Math.floor(window.innerHeight / zoomFactor);
+              const menuBarHeight = 20;
+              
               return {
                 ...w,
                 isMaximized: true,
                 restorePosition: w.position,
                 restoreSize: w.size,
-                position: { x: 0, y: 20 }, // Below menu bar
+                position: { x: 0, y: menuBarHeight },
                 size: {
-                  width: window.innerWidth,
-                  height: window.innerHeight - 20,
+                  width: effectiveWidth,
+                  height: effectiveHeight - menuBarHeight,
                 },
               };
             }

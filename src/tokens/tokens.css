@@ -351,6 +351,14 @@
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
+
+  /* ============================================
+   * DISPLAY SETTINGS
+   * Controlled by DisplayPanel via Settings Store
+   * ============================================ */
+  
+  --display-zoom: 1;
+  --display-brightness: 1;
 }
 
 /* ============================================

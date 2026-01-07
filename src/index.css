@@ -48,6 +48,16 @@ body {
   /* Full viewport */
   min-height: 100vh;
   min-height: 100dvh;
+  
+  /* Verhindere Scrollbars im Hauptcontainer
+     Scrolling findet nur innerhalb von Fenstern statt (authentisches Mac OS 8/9) */
+  overflow: hidden;
+}
+
+/* Erlaube Scrolling bei hochgezoomter App (Scaling > 1),
+   aber nur wenn kein Fenster maximiert ist */
+body.allow-scroll {
+  overflow: auto;
 }
 
 /* ============================================
@@ -59,6 +69,9 @@ body {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  
+  /* Keine min-width mehr, da dies bei Zoom Scrollbars erzeugen kann.
+     Stattdessen wird die min-width nur auf den Desktop angewendet */
 }
 
 /* ============================================

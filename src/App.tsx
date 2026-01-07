@@ -59,8 +59,24 @@ const App: FC = () => {
   const { openWindow, windows } = useWindowStore();
   const dialog = useDialog();
   const toast = useToast();
-  const { settings } = useSettingsStore();
+  const { settings, updateDisplay } = useSettingsStore();
   const { theme, highlightColor, fontSize } = settings.appearance;
+  const { scaling, brightness } = settings.display;
+
+  // Keyboard shortcut to reset zoom (Ctrl+Shift+0)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ctrl+Shift+0 or Cmd+Shift+0 to reset zoom
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === '0') {
+        e.preventDefault();
+        updateDisplay({ scaling: 1, brightness: 75 });
+        toast.success('Zoom reset to 1x');
+      }
+    };
+    
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [updateDisplay, toast]);
 
   // Open Dashboard on first load if no windows are open
   useEffect(() => {
@@ -94,6 +110,24 @@ const App: FC = () => {
       document.documentElement.style.setProperty(key, value);
     });
   }, [theme, highlightColor, fontSize]);
+
+  // Dynamische Anwendung von Display-Settings (Scaling & Brightness)
+  useEffect(() => {
+    const root = document.getElementById('root');
+    if (root) {
+      // Scaling: CSS zoom für proportionale Skalierung der gesamten App
+      root.style.zoom = String(scaling);
+      
+      // Brightness: filter für Helligkeitsanpassung (0-100 → 0.5-1.2)
+      // Bei brightness=0 → 0.5 (dunkel), brightness=100 → 1.2 (hell)
+      const brightnessValue = 0.5 + (brightness / 100) * 0.7;
+      root.style.filter = `brightness(${brightnessValue})`;
+      
+      // CSS Custom Properties für eventuelle weitere Nutzung setzen
+      document.documentElement.style.setProperty('--display-zoom', String(scaling));
+      document.documentElement.style.setProperty('--display-brightness', String(brightnessValue));
+    }
+  }, [scaling, brightness]);
 
   // Dialog demo handlers
   const handleAlertDemo = async () => {

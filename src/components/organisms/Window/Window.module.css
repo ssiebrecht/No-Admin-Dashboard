@@ -70,10 +70,30 @@
 
 /* ================================
  * MAXIMIZED STATE
+ * Maximierte Fenster füllen den gesamten Desktop-Bereich
+ * ohne Scrollbars zu erzeugen (authentisches Mac OS 8/9 Verhalten)
  * ================================ */
 .window.maximized {
+  /* Verwende fixed positioning um exakt am Viewport zu kleben */
+  position: fixed !important;
+  
+  /* Nutze inset für präzise Positionierung statt left/top/width/height */
+  /* Dies stellt sicher, dass das Fenster nie größer als der Viewport ist */
+  top: var(--menubar-height) !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  
+  /* Überschreibe die per JS gesetzten Werte */
+  width: auto !important;
+  height: auto !important;
+  
+  /* Keine abgerundeten Ecken im Vollbild */
   border-radius: 0;
   box-shadow: none;
+  
+  /* Stelle sicher, dass keine Inhalte über den Rand hinausragen */
+  overflow: hidden;
 }
 
 /* ================================
@@ -223,4 +243,9 @@
   box-shadow:
     inset 1px 1px 0 var(--color-platinum-lightest),
     inset -1px -1px 0 var(--color-border-light);
+}
+
+/* Kein Border-Frame im maximierten Zustand */
+.window.maximized .borderFrame {
+  display: none;
 }

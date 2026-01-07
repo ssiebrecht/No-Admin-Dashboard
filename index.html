@@ -5,9 +5,96 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mac OS 8/9 Admin Dashboard</title>
+    <style>
+      /* Emergency Reset Button - outside React, unaffected by zoom */
+      #emergency-reset {
+        position: fixed;
+        bottom: 8px;
+        left: 8px;
+        z-index: 999999;
+        padding: 4px 8px;
+        font-size: 10px;
+        font-family: system-ui, -apple-system, sans-serif;
+        background: #ff6b6b;
+        color: white;
+        border: 1px solid #c0392b;
+        border-radius: 4px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      }
+      #emergency-reset:hover {
+        opacity: 1;
+      }
+      /* Only show when zoom is active (controlled via JS) */
+      #emergency-reset.hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Emergency Reset Button - outside React root, unaffected by zoom -->
+    <button id="emergency-reset" class="hidden" title="Reset zoom to 1x (Ctrl+Shift+0)">
+      ⚠️ Reset Zoom
+    </button>
+    
+    <script>
+      // Emergency reset functionality - runs outside React
+      (function() {
+        const btn = document.getElementById('emergency-reset');
+        const STORAGE_KEY = 'settings-storage';
+        
+        function checkZoom() {
+          try {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored) {
+              const data = JSON.parse(stored);
+              const scaling = data?.state?.settings?.display?.scaling;
+              if (scaling && scaling > 1) {
+                btn.classList.remove('hidden');
+              } else {
+                btn.classList.add('hidden');
+              }
+            }
+          } catch (e) {
+            // Ignore JSON parse errors
+          }
+        }
+        
+        function resetZoom() {
+          try {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored) {
+              const data = JSON.parse(stored);
+              if (data?.state?.settings?.display) {
+                data.state.settings.display.scaling = 1;
+                data.state.settings.display.brightness = 75;
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+                location.reload(); // Reload to apply changes
+              }
+            }
+          } catch (e) {
+            console.error('Reset failed:', e);
+            // Fallback: clear all settings
+            localStorage.removeItem(STORAGE_KEY);
+            location.reload();
+          }
+        }
+        
+        btn.addEventListener('click', resetZoom);
+        
+        // Check zoom on load and when storage changes
+        checkZoom();
+        window.addEventListener('storage', checkZoom);
+        
+        // Also poll periodically in case of same-tab changes
+        setInterval(checkZoom, 1000);
+      })();
+    </script>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

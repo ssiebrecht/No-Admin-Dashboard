@@ -31,6 +31,10 @@ export const DisplayPanel: FC = () => {
     [updateDisplay]
   );
 
+  const handleResetZoom = useCallback(() => {
+    updateDisplay({ scaling: 1, brightness: 75 });
+  }, [updateDisplay]);
+
   const handleBrightnessChange = useCallback(
     (brightness: number) => {
       updateDisplay({ brightness });
@@ -49,6 +53,20 @@ export const DisplayPanel: FC = () => {
 
   return (
     <div className={styles.panel}>
+      {/* Warning when zoom is > 1 */}
+      {display.scaling > 1 && (
+        <div className={styles.zoomWarning}>
+          <span>⚠️ Zoom is at {display.scaling}x. UI may extend beyond viewport.</span>
+          <button
+            type="button"
+            className={styles.resetButton}
+            onClick={handleResetZoom}
+          >
+            Reset to 1x
+          </button>
+        </div>
+      )}
+
       {/* Resolution Mode */}
       <section className={styles.section}>
         <Text variant="label" weight="bold" className={styles.sectionTitle}>

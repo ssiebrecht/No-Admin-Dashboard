@@ -22,6 +22,8 @@
   background-size: 4px 4px;
   background-position: 0 0, 0 2px, 2px -2px, -2px 0px;
   
+  /* Kein Scrolling auf dem Desktop - verhindert Scrollbars bei maximierten Fenstern
+     Scrolling findet nur innerhalb von Fenstern statt (authentisches Mac OS 8/9) */
   overflow: hidden;
   z-index: var(--z-desktop);
 }
