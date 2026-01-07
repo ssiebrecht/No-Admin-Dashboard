@@ -18,6 +18,8 @@ import { Button } from './components/atoms/Button';
 import { useWindowStore } from './store/windowStore';
 import { useDialog } from './hooks/useDialog';
 import { useToast } from './hooks/useToast';
+import { useSettingsStore } from './store/settingsStore';
+import { HIGHLIGHT_COLORS } from './data/controlPanels';
 import type { MenuItem } from './types/menu';
 import type { DesktopIconData } from './types/desktop';
 import styles from './App.module.css';
@@ -26,10 +28,39 @@ import styles from './App.module.css';
  * Mac OS 8/9 Admin Dashboard
  * Main Application Component with Desktop Shell
  */
+const FONT_SIZE_MAP = {
+  small: {
+    '--text-xs': '8px',
+    '--text-sm': '9px',
+    '--text-base': '10px',
+    '--text-lg': '12px',
+    '--text-xl': '14px',
+    '--text-2xl': '18px',
+  },
+  medium: {
+    '--text-xs': '9px',
+    '--text-sm': '10px',
+    '--text-base': '12px',
+    '--text-lg': '14px',
+    '--text-xl': '18px',
+    '--text-2xl': '24px',
+  },
+  large: {
+    '--text-xs': '10px',
+    '--text-sm': '12px',
+    '--text-base': '14px',
+    '--text-lg': '16px',
+    '--text-xl': '22px',
+    '--text-2xl': '28px',
+  },
+};
+
 const App: FC = () => {
   const { openWindow, windows } = useWindowStore();
   const dialog = useDialog();
   const toast = useToast();
+  const { settings } = useSettingsStore();
+  const { theme, highlightColor, fontSize } = settings.appearance;
 
   // Open Dashboard on first load if no windows are open
   useEffect(() => {
@@ -44,6 +75,25 @@ const App: FC = () => {
       });
     }
   }, []); // Empty deps - only run on mount
+
+  // Dynamische Anwendung von Theme, Highlight und Fontgröße
+  useEffect(() => {
+    // Theme: data-theme Attribut setzen
+    document.documentElement.setAttribute('data-theme', theme);
+
+    // Highlight: --color-highlight setzen
+    const highlight = HIGHLIGHT_COLORS.find(c => c.id === highlightColor);
+    if (highlight) {
+      document.documentElement.style.setProperty('--color-highlight', highlight.value);
+      // Optional: auch --color-focus, --color-highlight-light/dark setzen, falls gewünscht
+    }
+
+    // Fontgrößen: alle relevanten Custom Properties setzen
+    const fontMap = FONT_SIZE_MAP[fontSize] || FONT_SIZE_MAP.medium;
+    Object.entries(fontMap).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(key, value);
+    });
+  }, [theme, highlightColor, fontSize]);
 
   // Dialog demo handlers
   const handleAlertDemo = async () => {

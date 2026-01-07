@@ -358,6 +358,10 @@
  * Alternative color scheme (optional)
  * ============================================ */
 
+[data-theme="platinum"] {
+  /* Default: keine Überschreibung nötig, da :root = platinum */
+}
+
 [data-theme="graphite"] {
   --color-desktop: #6B6B6B;
   --color-highlight: #808080;
@@ -366,6 +370,10 @@
   --color-focus: #808080;
   --color-focus-ring: rgba(128, 128, 128, 0.5);
 }
+
+/* Dynamische Highlight-Farben werden per JS auf --color-highlight gesetzt */
+
+/* Fontgrößen werden dynamisch per JS auf --text-xs, --text-sm, --text-base, ... gesetzt */
 
 /* ============================================
  * HIGH CONTRAST MODE
