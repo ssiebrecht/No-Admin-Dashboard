@@ -111,7 +111,6 @@ export const menuConfig: Menu[] = [
       { id: 'sep-1', label: '', separator: true },
       { id: 'activity-monitor', label: 'Activity Monitor', icon: '📈' },
       { id: 'system-logs', label: 'System Logs', icon: '📋' },
-      { id: 'dialog-demo', label: 'Dialog Demo', icon: '💬' },
       { id: 'sep-2', label: '', separator: true },
       { id: 'empty-trash', label: 'Empty Trash...', icon: '🗑️' },
     ],

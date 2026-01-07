@@ -14,15 +14,12 @@ import {
   MemoryPanel,
   DisplayPanel,
 } from './components/organisms/panels';
-import { Button } from './components/atoms/Button';
 import { useWindowStore } from './store/windowStore';
-import { useDialog } from './hooks/useDialog';
 import { useToast } from './hooks/useToast';
 import { useSettingsStore } from './store/settingsStore';
 import { HIGHLIGHT_COLORS } from './data/controlPanels';
 import type { MenuItem } from './types/menu';
 import type { DesktopIconData } from './types/desktop';
-import styles from './App.module.css';
 
 /**
  * Mac OS 8/9 Admin Dashboard
@@ -57,7 +54,6 @@ const FONT_SIZE_MAP = {
 
 const App: FC = () => {
   const { openWindow, windows } = useWindowStore();
-  const dialog = useDialog();
   const toast = useToast();
   const { settings, updateDisplay } = useSettingsStore();
   const { theme, highlightColor, fontSize } = settings.appearance;
@@ -129,115 +125,6 @@ const App: FC = () => {
     }
   }, [scaling, brightness]);
 
-  // Dialog demo handlers
-  const handleAlertDemo = async () => {
-    await dialog.alert({
-      title: 'Welcome to Mac OS 8.6',
-      message: 'Your system is ready. Click OK to continue.',
-      icon: 'info',
-    });
-    console.log('Alert closed');
-  };
-
-  const handleWarningDemo = async () => {
-    await dialog.alert({
-      title: 'Low Disk Space',
-      message: 'Your startup disk is almost full. Delete files to make room.',
-      icon: 'warning',
-    });
-  };
-
-  const handleErrorDemo = async () => {
-    await dialog.alert({
-      title: 'An error occurred',
-      message: 'The application "Finder" has unexpectedly quit. Error code: -39',
-      icon: 'error',
-    });
-  };
-
-  const handleSuccessDemo = async () => {
-    await dialog.alert({
-      title: 'File Copied',
-      message: 'The file has been copied successfully to the destination folder.',
-      icon: 'success',
-    });
-  };
-
-  const handleConfirmDemo = async () => {
-    const confirmed = await dialog.confirm({
-      title: 'Empty Trash?',
-      message: 'Are you sure you want to permanently erase the items in the Trash?',
-      icon: 'question',
-      confirmLabel: 'Empty Trash',
-      cancelLabel: 'Cancel',
-    });
-    console.log('Confirmed:', confirmed);
-    if (confirmed) {
-      await dialog.alert({
-        title: 'Trash Emptied',
-        message: 'The Trash has been emptied.',
-        icon: 'success',
-      });
-    }
-  };
-
-  const handleDangerConfirmDemo = async () => {
-    const confirmed = await dialog.confirm({
-      title: 'Delete User?',
-      message: 'This action cannot be undone. All user data will be permanently removed.',
-      icon: 'warning',
-      confirmLabel: 'Delete',
-      cancelLabel: 'Cancel',
-      danger: true,
-    });
-    if (confirmed) {
-      console.log('User deleted');
-    }
-  };
-
-  const handlePromptDemo = async () => {
-    const name = await dialog.prompt({
-      title: 'Create New Folder',
-      message: 'Enter a name for the new folder:',
-      inputPlaceholder: 'untitled folder',
-      defaultValue: 'New Folder',
-      icon: 'question',
-      confirmLabel: 'Create',
-      cancelLabel: 'Cancel',
-      required: true,
-    });
-    if (name !== null) {
-      await dialog.alert({
-        title: 'Folder Created',
-        message: `Folder "${name}" has been created.`,
-        icon: 'success',
-      });
-    }
-  };
-
-  const handleRenameDemo = async () => {
-    const newName = await dialog.prompt({
-      title: 'Rename Item',
-      inputLabel: 'New name:',
-      defaultValue: 'My Document.txt',
-      icon: 'question',
-      confirmLabel: 'Rename',
-      cancelLabel: 'Cancel',
-      validate: (value) => {
-        if (value.includes('/')) {
-          return 'Name cannot contain "/"';
-        }
-        if (value.length > 31) {
-          return 'Name must be 31 characters or less';
-        }
-        return undefined;
-      },
-    });
-    if (newName !== null) {
-      console.log('Renamed to:', newName);
-    }
-  };
-
   // Handle menu item clicks
   const handleMenuItemClick = useCallback((item: MenuItem) => {
     console.log('Menu item clicked:', item.id);
@@ -287,15 +174,6 @@ const App: FC = () => {
           icon: '📈',
           initialPosition: { x: 160, y: 120 },
           initialSize: { width: 600, height: 400 },
-        });
-        break;
-      case 'dialog-demo':
-        openWindow({
-          id: 'dialog-demo',
-          title: 'Dialog Demo',
-          icon: '💬',
-          initialPosition: { x: 200, y: 80 },
-          initialSize: { width: 380, height: 420 },
         });
         break;
       default:
