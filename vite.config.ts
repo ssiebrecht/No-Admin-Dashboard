@@ -14,5 +14,5 @@ export default defineConfig({
       '@types': resolve(__dirname, './src/types'),
     },
   },
-  base: '/<REPO-NAME>/', // Replace <REPO-NAME> with your GitHub repository name
+  base: '/No-Admin-Dashboard/', // Updated to match the GitHub repository name
 });
